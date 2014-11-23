@@ -15,6 +15,10 @@
 
 	<script>
 
+(function() {
+	a();b();c();
+})();
+
 function a() {
 	var c = document.getElementById('canvas1');
 	var ctx = c.getContext("2d");
@@ -48,7 +52,7 @@ function c() {
 	ctx.fillRect(10,200,150,75);
 }	
 
-a();b();c();
+
 
 	</script>
 </body>
