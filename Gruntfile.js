@@ -23,7 +23,23 @@ module.exports = function(grunt) {
         src: ['<%= dirs.src %>/**.js'],
         dest: '<%= dirs.dest %>/app.js'
       },
-    }
+    },
+
+    uglify: {
+      options: {
+        // the banner is inserted at the top of the output
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n',
+        mangle: true,
+        compress: true,
+        sourceMap: true,
+        beautify: true
+      },
+      dist: {
+        files: {
+          '<%= dirs.dest %>/app.min.js': ['<%= concat.dist.dest %>']
+        }
+      }
+   }
 
   });
 
@@ -35,6 +51,7 @@ module.exports = function(grunt) {
 
 
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.registerTask('default', ['concat']);
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.registerTask('default', ['concat', 'uglify']);
 
 };
