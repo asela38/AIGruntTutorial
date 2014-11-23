@@ -1,0 +1,22 @@
+{
+  "name": "Sample",
+  "version": "0.0.0",
+  "description": "Sample Demo Application",
+  "main": "js/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asela38/AIGruntTutorial.git"
+  },
+  "author": "Asela Illayapparachchi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asela38/AIGruntTutorial/issues"
+  },
+  "homepage": "https://github.com/asela38/AIGruntTutorial",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
+}
