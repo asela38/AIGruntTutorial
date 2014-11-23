@@ -14,7 +14,7 @@ module.exports = function(grunt) {
     },
     concat: {
       options: {
-        separator: ';\n',
+        separator: '\n',
         stripBanners: false,
         banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
           '<%= grunt.template.today("yyyy-mm-dd") %> */\n'
@@ -39,7 +39,21 @@ module.exports = function(grunt) {
           '<%= dirs.dest %>/app.min.js': ['<%= concat.dist.dest %>']
         }
       }
-   }
+    },
+    jshint: {
+      // define the files to lint
+      beforeconcat: ['gruntfile.js', '<%= dirs.src %>/**.js'],
+      afterconcat: ['<%= dirs.dest %>/app.js'],
+      // configure JSHint (documented at http://www.jshint.com/docs/)
+      options: {
+          // more options here if you want to override JSHint defaults
+        globals: {
+          jQuery: true,
+          console: true,
+          module: true
+        }
+      }
+    }
 
   });
 
@@ -52,6 +66,7 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.registerTask('default', ['concat', 'uglify']);
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.registerTask('default', ['jshint','concat', 'uglify']);
 
 };

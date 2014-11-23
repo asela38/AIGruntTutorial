@@ -1,6 +1,6 @@
 function c() {
-	var c = document.getElementById('canvas3');
-	var ctx = c.getContext("2d");
+	var c1 = document.getElementById('canvas3');
+	var ctx = c1.getContext("2d");
 	ctx.fillStyle = "#660066";
 	ctx.fillRect(10,10,150,75);
 	ctx.fillStyle = "#CC0099";
